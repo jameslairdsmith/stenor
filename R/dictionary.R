@@ -1,3 +1,5 @@
+#' @export
+
 read_plover_dict <- function(dir){
 
   dir %>%
@@ -12,6 +14,7 @@ read_plover_dict <- function(dir){
 
 }
 
+#' @export
 
 read_plover_dir <- function(dir){
 

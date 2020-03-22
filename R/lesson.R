@@ -1,3 +1,5 @@
+#' @export
+
 read_lesson <- function(tsv_file,
                         col_names = c("result", "strokes"),
                         ...){
@@ -8,6 +10,7 @@ read_lesson <- function(tsv_file,
            ...)
 }
 
+#' @export
 
 write_lesson <- function(x, output_dir, ...){
 
