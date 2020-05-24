@@ -57,6 +57,22 @@ write_plover_dict <- function(df, output_dir = NULL){
   out
 }
 
+#' @importFrom tidyr nest
+#' @importFrom purrr walk2
+#' @export
+
+write_plover_dir <- function(sheet_dict, output_dir){
+
+  ## Must have a column called "dictionary name"
+
+  sheet_dict %>%
+    nest(sheet_data = -one_of("dictionary_name")) %>%
+    mutate(dict_json = map(sheet_data, write_plover_dict),
+           result_output_dir = paste0(output_dir, dictionary_name, ".json"),
+           written_result = walk2(dict_json, result_output_dir, write))
+}
+
+
 make_named_list <- function(col_for_names, col_for_values){
 
   out <- list(col_for_values)
