@@ -12,6 +12,5 @@
 #' @importFrom tidyr unnest
 #' @importFrom dplyr mutate select rename mutate_at vars pull
 #' @importFrom stringr str_remove str_extract str_replace_all
-#' @importFrom readr read_tsv
 ## usethis namespace: end
 NULL
