@@ -10,13 +10,14 @@ read_sheet_dictionary <- function(spreadsheet_id){
 }
 
 
-#' @importFrom dplyr everything
+#' @importFrom dplyr everything filter_all any_vars
 #' @importFrom googlesheets4 read_sheet
 #' @export
 
 read_steno_sheet <- function(spreadsheet_id, sheet_name){
 
   read_sheet(spreadsheet_id, sheet = sheet_name, col_types = "c") %>%
+    filter_all(any_vars(!is.na(.))) %>%
     mutate(dictionary_name = sheet_name) %>%
     select(dictionary_name, everything())
 }
