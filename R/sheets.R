@@ -26,7 +26,7 @@ read_steno_sheet <- function(spreadsheet_id, sheet_name){
 #' @importFrom dplyr pull
 #' @export
 
-get_sheet_names <- function(sheet_id){
+get_sheet_names <- function(spreadsheet_id){
 
   gs4_get(spreadsheet_id) %>%
     extract2("sheets") %>%
