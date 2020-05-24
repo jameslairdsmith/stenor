@@ -1,3 +1,4 @@
+#' @importFrom jsonlite fromJSON
 #' @export
 
 read_plover_dict <- function(dir){
@@ -29,6 +30,7 @@ read_plover_dir <- function(dir){
 
 }
 
+#' @importFrom jsonlite toJSON
 #' @export
 
 write_plover_dict <- function(df, output_dir = NULL){

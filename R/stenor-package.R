@@ -4,7 +4,6 @@
 # The following block is used by usethis to automatically manage
 # roxygen namespace tags. Modify with care!
 ## usethis namespace: start
-#' @importFrom jsonlite fromJSON toJSON
 #' @importFrom purrr map flatten_dfc map2 flatten
 #' @importFrom tibble tibble as_tibble rownames_to_column
 #' @importFrom magrittr %>%
