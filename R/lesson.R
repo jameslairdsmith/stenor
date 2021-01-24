@@ -21,11 +21,11 @@ write_lesson <- function(data, output_dir, ...){
 #' @export
 #' @importFrom dplyr slice
 
-slice_lesson <- function(data, end_index, window_size = 5L){
+slice_lesson <- function(data, start_index, window_size = 5L){
 
   window_size <- window_size - 1L
-  end_index <- min(end_index, nrow(data))
-  start_index <- max(end_index - window_size, 1L)
+  start_index <- min(max(1L, start_index), nrow(data))
+  end_index <- min(start_index + window_size, nrow(data))
 
   slice(data, seq(start_index, end_index, by = 1L))
 }
