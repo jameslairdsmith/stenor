@@ -26,4 +26,14 @@ slice_lesson <- function(data, end_index, window_size = 5L){
   slice(data, seq(start_index, end_index, by = 1L))
 }
 
+#' @export
+#' @importFrom clipr write_clip
+
+clip_lesson <- function(data){
+
+  write_clip(data, col.names = FALSE)
+}
+
+
+
 
