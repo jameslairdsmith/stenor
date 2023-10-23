@@ -1,6 +1,5 @@
 #' @importFrom jsonlite fromJSON
 #' @export
-
 read_plover_dict <- function(dir){
 
   dir %>%
@@ -12,7 +11,6 @@ read_plover_dict <- function(dir){
     as_tibble() %>%
     rename(result = "V1") %>%
     select(result, strokes)
-
 }
 
 #' @export
@@ -27,12 +25,10 @@ read_plover_dir <- function(dir){
            file = map(dir, read_plover_dict)) %>%
     unnest(cols = c(file)) %>%
     select(-dir)
-
 }
 
 #' @importFrom jsonlite toJSON
 #' @export
-
 write_plover_dict <- function(df, output_dir = NULL){
 
   ## must have two columns, 'stroke' and 'translation'
@@ -53,14 +49,12 @@ write_plover_dict <- function(df, output_dir = NULL){
     write(out, output_dir)
     message("Output written to ", output_dir)
   }
-
   out
 }
 
 #' @importFrom tidyr nest
 #' @importFrom purrr walk2
 #' @export
-
 write_plover_dir <- function(sheet_dict, output_dir){
 
   ## Must have a column called "dictionary name"
@@ -71,7 +65,6 @@ write_plover_dir <- function(sheet_dict, output_dir){
            result_output_dir = paste0(output_dir, dictionary_name, ".json"),
            written_result = walk2(dict_json, result_output_dir, write))
 }
-
 
 make_named_list <- function(col_for_names, col_for_values){
 

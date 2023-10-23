@@ -1,5 +1,4 @@
 #' @export
-
 clip_practice <- function(start_index,
                           window_size = 5L,
                           dir = here("temp", "practice.tsv")){
