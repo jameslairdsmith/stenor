@@ -5,7 +5,6 @@ read_sheet_dictionary <- function(spreadsheet_id){
   sheet_names <- get_sheet_names(spreadsheet_id)
 
   map_dfr(sheet_names, read_steno_sheet, spreadsheet_id = spreadsheet_id)
-
 }
 
 #' @importFrom dplyr everything filter_all any_vars
@@ -23,7 +22,6 @@ read_steno_sheet <- function(spreadsheet_id, sheet_name){
 #' @importFrom magrittr extract2
 #' @importFrom dplyr pull
 #' @export
-
 get_sheet_names <- function(spreadsheet_id){
 
   gs4_get(spreadsheet_id) %>%
